@@ -12,10 +12,10 @@
 @interface Dicionario : NSObject
 
 @property NSMutableArray *dicionario;
-@property NSUInteger contador;
+@property Letra *letraAtual;
 
 + (Dicionario *)sharedInstance;
-- (instancetype)init;
-- (void)addObjetos;
+- (Letra *)proximo;
+- (Letra *)anterior;
 
 @end

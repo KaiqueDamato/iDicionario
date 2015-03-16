@@ -7,66 +7,73 @@
 //
 
 #import "LetraAViewController.h"
-#import "LetraBViewController.h"
 #import "Dicionario.h"
 #import "Letra.h"
 
-@implementation LetraAViewController{
-    BOOL forward;
+@implementation LetraAViewController {
+    UIImage *imagem;
+    UIImageView *imageView;
+    UILabel *palavra;
 }
-
 
 -(void) viewDidLoad {
     [super viewDidLoad];
     _dicionario = [Dicionario sharedInstance];
-    forward = NO;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    if (_dicionario.contador == 5) {
-        _dicionario.contador = 0;
-    }
-    Letra *letra = [_dicionario.dicionario objectAtIndex:_dicionario.contador];
+    
+    Letra *letra = _dicionario.letraAtual;
     self.title = [[letra.palavra substringToIndex:1] uppercaseString];
-    UIBarButtonItem *next = [[UIBarButtonItem alloc]
-                             initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(next:)];
-    self.navigationItem.rightBarButtonItem=next;
+    
+    imagem = [UIImage imageNamed:letra.palavra];
+    imageView = [[UIImageView alloc] initWithImage:imagem];
+    imageView.frame = CGRectMake(0, 0, 100, 100);
+    imageView.center = self.view.center;
+    
+    UIBarButtonItem *proximo = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(proximo)];
+    self.navigationItem.rightBarButtonItem = proximo;
+    
+    palavra = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    palavra.text = letra.palavra;
+    
+    UIBarButtonItem *anterior = [[UIBarButtonItem alloc]
+                                 initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(anterior)];
+    self.navigationItem.leftBarButtonItem = anterior;
     
     UIButton *botao = [UIButton buttonWithType:UIButtonTypeSystem];
     [botao setTitle:@"Falar Palavra" forState:UIControlStateNormal];
     botao.frame = CGRectMake(0, 0, 200, 10);
     botao.transform = CGAffineTransformMakeTranslation(65, 400);
     
-    UIImage *imagem = [UIImage imageNamed:letra.palavra];
-    UIImageView *view = [[UIImageView alloc] initWithImage:imagem];
-    view.frame = CGRectMake(0, 0, 100, 100);
-    view.center = self.view.center;
+    [self.view addSubview:botao];
+    [self.view addSubview:imageView];
+    [self.view addSubview:palavra];
+}
+
+- (void)updateViewWithModel:(Letra *)letra {
+    Letra *letra1 = _dicionario.letraAtual;
+    self.title = [[letra1.palavra substringToIndex:1] uppercaseString];
+    palavra.text = letra.palavra;
+    
+    UIButton *botao = [UIButton buttonWithType:UIButtonTypeSystem];
+    [botao setTitle:@"Falar Palavra" forState:UIControlStateNormal];
+    botao.frame = CGRectMake(0, 0, 200, 10);
+    botao.transform = CGAffineTransformMakeTranslation(65, 400);
+    
+    imagem = [UIImage imageNamed:letra1.palavra];
+    imageView.image = imagem;
+    imageView.frame = CGRectMake(0, 0, 100, 100);
+    imageView.center = self.view.center;
     
     [self.view addSubview:botao];
-    [self.view addSubview:view];
-    
+    [self.view addSubview:imageView];
 }
 
--(void)next:(id)sender {
-    forward = YES;
-    LetraBViewController *proximo = [[LetraBViewController alloc]
-                                              initWithNibName:nil
-                                            bundle:NULL];
-    [self.navigationController pushViewController:proximo
-                                         animated:YES];
-    
-    if (_dicionario.contador == 5) {
-        _dicionario.contador = 0;
-    } else {
-        _dicionario.contador++;
-    }
+- (void)proximo {
+    [self updateViewWithModel:_dicionario.proximo];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    if (!forward) {
-        _dicionario.contador--;
-    }
-    forward = NO;
+- (void)anterior {
+    [self updateViewWithModel:_dicionario.anterior];
 }
 
 
