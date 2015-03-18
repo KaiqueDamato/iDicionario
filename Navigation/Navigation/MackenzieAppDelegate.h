@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Dicionario;
 
 @interface MackenzieAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) UITabBarController *tabBarController;
+@property Dicionario *dicionario;
 
 
 @end

@@ -13,9 +13,10 @@
 
 @property NSMutableArray *dicionario;
 @property Letra *letraAtual;
+@property NSMutableArray *navigation;
 
 + (Dicionario *)sharedInstance;
-- (Letra *)proximo;
-- (Letra *)anterior;
+- (void)proximo;
+- (void)anterior;
 
 @end

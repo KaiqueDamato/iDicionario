@@ -14,67 +14,86 @@
     UIImage *imagem;
     UIImageView *imageView;
     UILabel *palavra;
+    UIBarButtonItem *proximo;
+    UIBarButtonItem *anterior;
+    BOOL permissao;
+    Letra *letra;
 }
 
 -(void) viewDidLoad {
     [super viewDidLoad];
     _dicionario = [Dicionario sharedInstance];
+    permissao = YES;
     
-    Letra *letra = _dicionario.letraAtual;
-    self.title = [[letra.palavra substringToIndex:1] uppercaseString];
+    if (permissao) {
+        proximo = [[UIBarButtonItem alloc]
+                   initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(proximo)];
+        
+        anterior = [[UIBarButtonItem alloc]
+                    initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(anterior)];
+    }
     
-    imagem = [UIImage imageNamed:letra.palavra];
-    imageView = [[UIImageView alloc] initWithImage:imagem];
-    imageView.frame = CGRectMake(0, 0, 100, 100);
-    imageView.center = self.view.center;
-    
-    UIBarButtonItem *proximo = [[UIBarButtonItem alloc]
-                                initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(proximo)];
     self.navigationItem.rightBarButtonItem = proximo;
+    
+    self.navigationItem.leftBarButtonItem = anterior;
+    
+    letra = _dicionario.letraAtual;
+    
+    self.navigationItem.title = [[letra.palavra substringToIndex:1] uppercaseString];
+    
+    imageView = [[UIImageView alloc] initWithImage:_dicionario.letraAtual.imagem];
+    imageView.frame = CGRectMake(120, -200, 100, 100);
     
     palavra = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     palavra.text = letra.palavra;
     
-    UIBarButtonItem *anterior = [[UIBarButtonItem alloc]
-                                 initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(anterior)];
-    self.navigationItem.leftBarButtonItem = anterior;
-    
     UIButton *botao = [UIButton buttonWithType:UIButtonTypeSystem];
     [botao setTitle:@"Falar Palavra" forState:UIControlStateNormal];
-    botao.frame = CGRectMake(0, 0, 200, 10);
-    botao.transform = CGAffineTransformMakeTranslation(65, 400);
+    botao.frame = CGRectMake(65, 400, 200, 10);
     
     [self.view addSubview:botao];
     [self.view addSubview:imageView];
     [self.view addSubview:palavra];
 }
 
-- (void)updateViewWithModel:(Letra *)letra {
-    Letra *letra1 = _dicionario.letraAtual;
-    self.title = [[letra1.palavra substringToIndex:1] uppercaseString];
-    palavra.text = letra.palavra;
-    
-    UIButton *botao = [UIButton buttonWithType:UIButtonTypeSystem];
-    [botao setTitle:@"Falar Palavra" forState:UIControlStateNormal];
-    botao.frame = CGRectMake(0, 0, 200, 10);
-    botao.transform = CGAffineTransformMakeTranslation(65, 400);
-    
-    imagem = [UIImage imageNamed:letra1.palavra];
-    imageView.image = imagem;
-    imageView.frame = CGRectMake(0, 0, 100, 100);
-    imageView.center = self.view.center;
-    
-    [self.view addSubview:botao];
-    [self.view addSubview:imageView];
+- (void)viewDidAppear:(BOOL)animated {
+    [UIView animateWithDuration:0.5
+                          delay:0.1
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         imageView.transform = CGAffineTransformMakeTranslation(0, self.view.frame.origin.x+450);
+                     }
+                     completion:nil];
 }
 
 - (void)proximo {
-    [self updateViewWithModel:_dicionario.proximo];
+    permissao = NO;
+    LetraAViewController *viewController = [[LetraAViewController alloc] initWithNibName:nil bundle:nil];
+    NSMutableArray *lista = [self.navigationController.viewControllers mutableCopy];
+    if ([lista count] > 3) {
+        [lista removeObjectAtIndex:0];
+        self.navigationController.viewControllers = lista;
+    }
+    [self.navigationController pushViewController:viewController animated:NO];
+    [_dicionario proximo];
+    permissao = YES;
 }
 
 - (void)anterior {
-    [self updateViewWithModel:_dicionario.anterior];
+    permissao = NO;
+    [_dicionario anterior];
+    LetraAViewController *viewController = [[LetraAViewController alloc] initWithNibName:nil bundle:nil];
+    NSMutableArray *lista = [self.navigationController.viewControllers mutableCopy];
+    if ([lista count] > 3) {
+        [lista addObject:viewController];
+        [lista removeLastObject];
+        self.navigationController.viewControllers = lista;
+    } else {
+        [lista insertObject:viewController atIndex:0];
+        self.navigationController.viewControllers = lista;
+    }
+    [self.navigationController popViewControllerAnimated:NO];
+    permissao = YES;
 }
-
 
 @end

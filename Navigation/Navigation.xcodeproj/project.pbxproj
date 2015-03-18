@@ -22,6 +22,7 @@
 		27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7C18BA89430053A99C /* LetraAViewController.m */; };
 		EC52AC821AB70F9E00FAEAC4 /* Dicionario.m in Sources */ = {isa = PBXBuildFile; fileRef = EC52AC811AB70F9E00FAEAC4 /* Dicionario.m */; };
 		EC52AC851AB70FF800FAEAC4 /* Letra.m in Sources */ = {isa = PBXBuildFile; fileRef = EC52AC841AB70FF800FAEAC4 /* Letra.m */; };
+		ECFD99B51ABA048800F958BE /* ListaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD99B41ABA048800F958BE /* ListaTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		EC52AC811AB70F9E00FAEAC4 /* Dicionario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dicionario.m; sourceTree = "<group>"; };
 		EC52AC831AB70FF800FAEAC4 /* Letra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Letra.h; sourceTree = "<group>"; };
 		EC52AC841AB70FF800FAEAC4 /* Letra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Letra.m; sourceTree = "<group>"; };
+		ECFD99B31ABA048800F958BE /* ListaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaTableViewController.h; sourceTree = "<group>"; };
+		ECFD99B41ABA048800F958BE /* ListaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				27156F5318B76AF50053A99C /* Supporting Files */,
 				27156F7B18BA89430053A99C /* LetraAViewController.h */,
 				27156F7C18BA89430053A99C /* LetraAViewController.m */,
+				ECFD99B31ABA048800F958BE /* ListaTableViewController.h */,
+				ECFD99B41ABA048800F958BE /* ListaTableViewController.m */,
 				EC52AC801AB70F9E00FAEAC4 /* Dicionario.h */,
 				EC52AC811AB70F9E00FAEAC4 /* Dicionario.m */,
 				EC52AC831AB70FF800FAEAC4 /* Letra.h */,
@@ -260,6 +265,7 @@
 				27156F5D18B76AF50053A99C /* MackenzieAppDelegate.m in Sources */,
 				27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */,
 				27156F5918B76AF50053A99C /* main.m in Sources */,
+				ECFD99B51ABA048800F958BE /* ListaTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
