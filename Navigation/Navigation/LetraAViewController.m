@@ -18,6 +18,7 @@
     UIBarButtonItem *anterior;
     BOOL permissao;
     Letra *letra;
+    UITextField *textField;
 }
 
 -(void) viewDidLoad {
@@ -32,6 +33,17 @@
         anterior = [[UIBarButtonItem alloc]
                     initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(anterior)];
     }
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, 40)];
+    
+    textField = [[UITextField alloc] initWithFrame:CGRectMake(50, 50, 220, 20)];
+    textField.placeholder = @"Digite a Palavra";
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    UIBarButtonItem *textItemView = [[UIBarButtonItem alloc] initWithCustomView:textField];
+    UIBarButtonItem *botaoItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(botaoSalvar)];
+    [toolbar setItems:@[textItemView, botaoItem]];
+    
     
     self.navigationItem.rightBarButtonItem = proximo;
     
@@ -54,6 +66,11 @@
     [self.view addSubview:botao];
     [self.view addSubview:imageView];
     [self.view addSubview:palavra];
+    [self.view addSubview:toolbar];
+}
+
+- (void)botaoSalvar {
+    palavra.text = textField.text;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
