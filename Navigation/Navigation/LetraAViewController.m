@@ -19,6 +19,10 @@
     BOOL permissao;
     Letra *letra;
     UITextField *textField;
+    float deltaX, deltaY;
+    CGRect myFrame;
+    UITouch *aTouch;
+    CGPoint touchLocation;
 }
 
 -(void) viewDidLoad {
@@ -81,6 +85,24 @@
                          imageView.transform = CGAffineTransformMakeTranslation(0, self.view.frame.origin.x+450);
                      }
                      completion:nil];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    aTouch = [[event allTouches] anyObject];
+    touchLocation = [aTouch locationInView:imageView];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    CGPoint loc = [aTouch locationInView:imageView];
+    CGPoint prevloc = touchLocation;
+    
+    myFrame = imageView.frame;
+    deltaX = loc.x - prevloc.x;
+    deltaY = loc.y - prevloc.y;
+    myFrame.origin.x += deltaX;
+    myFrame.origin.y += deltaY;
+    [imageView setFrame:myFrame];
 }
 
 - (void)proximo {
