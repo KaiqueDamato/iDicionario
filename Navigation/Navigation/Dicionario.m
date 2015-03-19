@@ -58,134 +58,82 @@ static bool isFirstAccess = YES;
 }
 
 - (void)addObjetos {
-    Letra *letraA = [[Letra alloc] init];
-    letraA.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/arara.imageset/arara.png"];
-    letraA.palavra = @"arara";
+    Letra *letraA = [[Letra alloc] initWithPalavra:@"arara"];
     [_dicionario addObject:letraA];
     
-    Letra *letraB = [[Letra alloc] init];
-    letraB.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/baleia.imageset/baleia.png"];
-    letraB.palavra = @"baleia";
+    Letra *letraB = [[Letra alloc] initWithPalavra:@"baleia"];
     [_dicionario addObject:letraB];
     
-    Letra *letraC = [[Letra alloc] init];
-    letraC.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/cachorro.imageset/cachorro.png"];
-    letraC.palavra = @"cachorro";
+    Letra *letraC = [[Letra alloc] initWithPalavra:@"cachorro"];
     [_dicionario addObject:letraC];
     
-    Letra *letraD = [[Letra alloc] init];
-    letraD.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/dinossauro.imageset/dinossauro.png"];
-    letraD.palavra = @"dinossauro";
+    Letra *letraD = [[Letra alloc] initWithPalavra:@"dinossauro"];
     [_dicionario addObject:letraD];
     
-    Letra *letraE = [[Letra alloc] init];
-    letraE.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/elefante.imageset/elefante.png"];
-    letraE.palavra = @"elefante";
+    Letra *letraE = [[Letra alloc] initWithPalavra:@"elefante"];
     [_dicionario addObject:letraE];
     
-    Letra *letraF = [[Letra alloc] init];
-    letraF.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/foca.imageset/foca.png"];
-    letraF.palavra = @"foca";
+    Letra *letraF = [[Letra alloc] initWithPalavra:@"foca"];
     [_dicionario addObject:letraF];
     
-    Letra *letraG = [[Letra alloc] init];
-    letraG.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/gato.imageset/gato.png"];
-    letraG.palavra = @"gato";
+    Letra *letraG = [[Letra alloc] initWithPalavra:@"gato"];
     [_dicionario addObject:letraG];
     
-    Letra *letraH = [[Letra alloc] init];
-    letraH.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/hiena.imageset/hiena.png"];
-    letraH.palavra = @"hiena";
+    Letra *letraH = [[Letra alloc] initWithPalavra:@"hiena"];
     [_dicionario addObject:letraH];
     
-    Letra *letraI = [[Letra alloc] init];
-    letraI.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/iguana.imageset/iguana.png"];
-    letraI.palavra = @"iguana";
+    Letra *letraI = [[Letra alloc] initWithPalavra:@"iguana"];
     [_dicionario addObject:letraI];
     
-    Letra *letraJ = [[Letra alloc] init];
-    letraJ.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/jacare.imageset/jacare.png"];
-    letraJ.palavra = @"jacare";
+    Letra *letraJ = [[Letra alloc] initWithPalavra:@"jacare"];
     [_dicionario addObject:letraJ];
     
-    Letra *letraK = [[Letra alloc] init];
-    letraK.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/kiwi.imageset/kiwi.png"];
-    letraK.palavra = @"kiwi";
+    Letra *letraK = [[Letra alloc] initWithPalavra:@"kiwi"];
     [_dicionario addObject:letraK];
     
-    Letra *letraL = [[Letra alloc] init];
-    letraL.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/leao.imageset/leao.png"];
-    letraL.palavra = @"leao";
+    Letra *letraL = [[Letra alloc] initWithPalavra:@"leao"];
     [_dicionario addObject:letraL];
     
-    Letra *letraM = [[Letra alloc] init];
-    letraM.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/macaco.imageset/macaco.png"];
-    letraM.palavra = @"macaco";
+    Letra *letraM = [[Letra alloc] initWithPalavra:@"macaco"];
     [_dicionario addObject:letraM];
     
-    Letra *letraN = [[Letra alloc] init];
-    letraN.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/naja.imageset/naja.png"];
-    letraN.palavra = @"naja";
+    Letra *letraN = [[Letra alloc] initWithPalavra:@"naja"];
     [_dicionario addObject:letraN];
     
-    Letra *letraO = [[Letra alloc] init];
-    letraO.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/ovelha.imageset/ovelha.png"];
-    letraO.palavra = @"ovelha";
+    Letra *letraO = [[Letra alloc] initWithPalavra:@"ovelha"];
     [_dicionario addObject:letraO];
     
-    Letra *letraP = [[Letra alloc] init];
-    letraP.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/peixe.imageset/peixe.png"];
-    letraP.palavra = @"peixe";
+    Letra *letraP = [[Letra alloc] initWithPalavra:@"peixe"];
     [_dicionario addObject:letraP];
     
-    Letra *letraQ = [[Letra alloc] init];
-    letraQ.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/queroquero.imageset/queroquero.png"];
-    letraQ.palavra = @"queroquero";
+    Letra *letraQ = [[Letra alloc] initWithPalavra:@"queroquero"];
     [_dicionario addObject:letraQ];
     
-    Letra *letraR = [[Letra alloc] init];
-    letraR.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/rato.imageset/rato.png"];
-    letraR.palavra = @"rato";
+    Letra *letraR = [[Letra alloc] initWithPalavra:@"rato"];
     [_dicionario addObject:letraR];
     
-    Letra *letraS = [[Letra alloc] init];
-    letraS.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/sapo.imageset/sapo.png"];
-    letraS.palavra = @"sapo";
+    Letra *letraS = [[Letra alloc] initWithPalavra:@"sapo"];
     [_dicionario addObject:letraS];
     
-    Letra *letraT = [[Letra alloc] init];
-    letraT.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/tatu.imageset/tatu.png"];
-    letraT.palavra = @"tatu";
+    Letra *letraT = [[Letra alloc] initWithPalavra:@"tatu"];
     [_dicionario addObject:letraT];
     
-    Letra *letraU = [[Letra alloc] init];
-    letraU.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/urso.imageset/urso.png"];
-    letraU.palavra = @"urso";
+    Letra *letraU = [[Letra alloc] initWithPalavra:@"urso"];
     [_dicionario addObject:letraU];
     
-    Letra *letraV = [[Letra alloc] init];
-    letraV.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/vaca.imageset/vaca.png"];
-    letraV.palavra = @"vaca";
+    Letra *letraV = [[Letra alloc] initWithPalavra:@"vaca"];
     [_dicionario addObject:letraV];
     
-    Letra *letraW = [[Letra alloc] init];
-    letraW.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/wolf.imageset/wolf.png"];
-    letraW.palavra = @"wolf";
+    Letra *letraW = [[Letra alloc] initWithPalavra:@"wolf"];
     [_dicionario addObject:letraW];
     
-    Letra *letraX = [[Letra alloc] init];
-    letraX.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/xareu.imageset/xareu.png"];
-    letraX.palavra = @"xareu";
+    Letra *letraX = [[Letra alloc] initWithPalavra:@"xareu"];
     [_dicionario addObject:letraX];
     
-    Letra *letraY = [[Letra alloc] init];
-    letraY.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/yorkshire.imageset/yorkshire.png"];
-    letraY.palavra = @"yorkshire";
+    Letra *letraY = [[Letra alloc] initWithPalavra:@"yorkshire"];
     [_dicionario addObject:letraY];
     
-    Letra *letraZ = [[Letra alloc] init];
-    letraZ.imagem = [UIImage imageWithContentsOfFile:@"/Users/kaiquedamato/Documents/iDicionario/Navigation/Navigation/Images.xcassets/zebra.imageset/zebra.png"];
-    letraZ.palavra = @"zebra";
+    Letra *letraZ = [[Letra alloc] initWithPalavra:@"zebra"];
     [_dicionario addObject:letraZ];
 }
 

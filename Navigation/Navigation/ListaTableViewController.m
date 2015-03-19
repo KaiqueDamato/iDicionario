@@ -54,7 +54,8 @@
     UIImageView *image = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 40, 40)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 15, 90, 20)];
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(70, 15, 90, 20)];
-    image.image = letra.imagem;
+    NSString *bundle = [[NSBundle mainBundle] pathForResource:letra.palavra ofType:@"png"];
+    image.image = [UIImage imageWithContentsOfFile:bundle];
     label.text = letra.palavra;
     label1.text = [[letra.palavra substringToIndex:1] uppercaseString];
     label1.textColor = [UIColor redColor];

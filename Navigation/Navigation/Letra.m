@@ -10,4 +10,12 @@
 
 @implementation Letra
 
+- (instancetype)initWithPalavra:(NSString *)palavra {
+    self = [super init];
+    if (self) {
+        _palavra = palavra;
+    }
+    return self;
+}
+
 @end

@@ -57,7 +57,9 @@
     
     self.navigationItem.title = [[letra.palavra substringToIndex:1] uppercaseString];
     
-    imageView = [[UIImageView alloc] initWithImage:_dicionario.letraAtual.imagem];
+    NSString *bundle = [[NSBundle mainBundle] pathForResource:letra.palavra ofType:@"png"];
+    imagem = [UIImage imageWithContentsOfFile:bundle];
+    imageView = [[UIImageView alloc] initWithImage:imagem];
     imageView.frame = CGRectMake(120, -200, 100, 100);
     
     palavra = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];

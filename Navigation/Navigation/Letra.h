@@ -10,7 +10,8 @@
 
 @interface Letra : NSObject
 
-@property UIImage *imagem;
 @property NSString *palavra;
+
+- (instancetype)initWithPalavra:(NSString *)palavra;
 
 @end
