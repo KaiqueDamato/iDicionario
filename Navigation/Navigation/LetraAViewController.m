@@ -16,7 +16,7 @@
     UILabel *palavra;
     UIBarButtonItem *proximo;
     UIBarButtonItem *anterior;
-    BOOL permissao;
+    BOOL permissao, toque;
     Letra *letra;
     UITextField *textField;
     float deltaX, deltaY;
@@ -61,6 +61,7 @@
     imagem = [UIImage imageWithContentsOfFile:bundle];
     imageView = [[UIImageView alloc] initWithImage:imagem];
     imageView.frame = CGRectMake(120, -200, 100, 100);
+    [imageView setUserInteractionEnabled:YES];
     
     palavra = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     palavra.text = letra.palavra;
@@ -90,8 +91,13 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    aTouch = [[event allTouches] anyObject];
+    aTouch = [touches anyObject];
     touchLocation = [aTouch locationInView:imageView];
+    toque = NO;
+    
+    if ([aTouch view] == imageView) {
+        toque = YES;
+    }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -99,12 +105,14 @@
     CGPoint loc = [aTouch locationInView:imageView];
     CGPoint prevloc = touchLocation;
     
-    myFrame = imageView.frame;
-    deltaX = loc.x - prevloc.x;
-    deltaY = loc.y - prevloc.y;
-    myFrame.origin.x += deltaX;
-    myFrame.origin.y += deltaY;
-    [imageView setFrame:myFrame];
+    if (toque) {
+        myFrame = imageView.frame;
+        deltaX = loc.x - prevloc.x;
+        deltaY = loc.y - prevloc.y;
+        myFrame.origin.x += deltaX;
+        myFrame.origin.y += deltaY;
+        [imageView setFrame:myFrame];
+    }
 }
 
 - (void)proximo {
