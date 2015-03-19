@@ -97,10 +97,15 @@
     
     if ([aTouch view] == imageView) {
         toque = YES;
+        [UIView animateWithDuration:0.5 animations:^{
+            imageView.frame = CGRectMake(self.view.center.x-100, self.view.center.y-90, 200, 200);
+        }];
     }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    imageView.frame = CGRectMake(self.view.center.x-50, self.view.center.y-40, 100, 100);
     
     CGPoint loc = [aTouch locationInView:imageView];
     CGPoint prevloc = touchLocation;
@@ -113,6 +118,10 @@
         myFrame.origin.y += deltaY;
         [imageView setFrame:myFrame];
     }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
 }
 
 - (void)proximo {
