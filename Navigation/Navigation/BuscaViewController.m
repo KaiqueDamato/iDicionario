@@ -14,6 +14,7 @@
 @interface BuscaViewController () <UITextFieldDelegate> {
     UIImageView *imageView;
     Dicionario *dicionario;
+    UILabel *label;
     BOOL farol;
 }
 
@@ -27,6 +28,9 @@
     farol = YES;
     imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dicionario"]];
     imageView.frame = CGRectMake(135, 170, 50, 50);
+    label = [[UILabel alloc] initWithFrame:CGRectMake(70, 250, 185, 20)];
+    label.text = @"Palavra não encontrada";
+    label.alpha = 0;
     
     _textFieldBusca = [[UITextField alloc] initWithFrame:CGRectMake(10, 300, 300, 20)];
     _textFieldBusca.placeholder = @"Digite a Palavra";
@@ -36,6 +40,11 @@
     
     [self.view addSubview:imageView];
     [self.view addSubview:_textFieldBusca];
+    [self.view addSubview:label];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    label.alpha = 0;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -93,10 +102,11 @@
                                                                                                                                                                   options:UIViewAnimationOptionCurveEaseOut
                                                                                                                                                                animations:^{
                                                                                                                                                                    imageView.transform = CGAffineTransformMakeTranslation(2, 0);
+                                                                                                                                                    
                                                                                                                                                                }
                                                                                                                                                                completion:^(BOOL finished) {
-                                                                                                                                                                   return;
                                                                                                                                                                    
+                                                                                                                                                                   label.alpha = 1;
                                                                                                                                                             
                                                                                                                                                                }];
                                                                                                                                           }];
