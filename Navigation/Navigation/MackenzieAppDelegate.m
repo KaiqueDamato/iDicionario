@@ -9,6 +9,7 @@
 #import "MackenzieAppDelegate.h"
 #import "LetraAViewController.h"
 #import "ListaTableViewController.h"
+#import "BuscaViewController.h"
 
 @implementation MackenzieAppDelegate
 
@@ -17,11 +18,15 @@
     
     LetraAViewController *viewController = [[LetraAViewController alloc] initWithNibName:nil bundle:nil];
     
+    BuscaViewController *viewController2 = [[BuscaViewController alloc] initWithNibName:nil bundle:nil];
+    
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    self.buscaNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController2];
     
     ListaTableViewController *table = [[ListaTableViewController alloc] init];
     
-    NSArray *views = [NSArray arrayWithObjects:self.navigationController, table, nil];
+    NSArray *views = [NSArray arrayWithObjects:self.navigationController, table, self.buscaNavigationController,nil];
     
     self.tabBarController.viewControllers = views;
     
@@ -32,6 +37,10 @@
     UIImage *tab2 = [UIImage imageNamed:@"lista"];
     [table.tabBarItem setImage:tab2];
     table.title = @"Lista";
+    
+    UIImage *tab3 = [UIImage imageNamed:@"busca"];
+    [self.buscaNavigationController.tabBarItem setImage:tab3];
+    self.buscaNavigationController.title = @"Busca";
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = self.tabBarController;

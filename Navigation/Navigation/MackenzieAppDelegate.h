@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) UINavigationController *buscaNavigationController;
 @property (nonatomic, strong) UITabBarController *tabBarController;
 @property Dicionario *dicionario;
 

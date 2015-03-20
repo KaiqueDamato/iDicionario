@@ -48,6 +48,8 @@
 		EC93A4E31ABB23110026781C /* xareu.png in Resources */ = {isa = PBXBuildFile; fileRef = EC93A4CA1ABB23110026781C /* xareu.png */; };
 		EC93A4E41ABB23110026781C /* yorkshire.png in Resources */ = {isa = PBXBuildFile; fileRef = EC93A4CB1ABB23110026781C /* yorkshire.png */; };
 		EC93A4E51ABB23110026781C /* zebra.png in Resources */ = {isa = PBXBuildFile; fileRef = EC93A4CC1ABB23110026781C /* zebra.png */; };
+		ECAC34381ABC654200266FC7 /* ResultadoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAC34371ABC654200266FC7 /* ResultadoViewController.m */; };
+		ECD588781ABB6820003AFF61 /* BuscaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD588771ABB6820003AFF61 /* BuscaViewController.m */; };
 		ECFD99B51ABA048800F958BE /* ListaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD99B41ABA048800F958BE /* ListaTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +112,10 @@
 		EC93A4CA1ABB23110026781C /* xareu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xareu.png; sourceTree = "<group>"; };
 		EC93A4CB1ABB23110026781C /* yorkshire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yorkshire.png; sourceTree = "<group>"; };
 		EC93A4CC1ABB23110026781C /* zebra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zebra.png; sourceTree = "<group>"; };
+		ECAC34361ABC654200266FC7 /* ResultadoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultadoViewController.h; sourceTree = "<group>"; };
+		ECAC34371ABC654200266FC7 /* ResultadoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultadoViewController.m; sourceTree = "<group>"; };
+		ECD588761ABB6820003AFF61 /* BuscaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscaViewController.h; sourceTree = "<group>"; };
+		ECD588771ABB6820003AFF61 /* BuscaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscaViewController.m; sourceTree = "<group>"; };
 		ECFD99B31ABA048800F958BE /* ListaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaTableViewController.h; sourceTree = "<group>"; };
 		ECFD99B41ABA048800F958BE /* ListaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +186,10 @@
 				27156F7C18BA89430053A99C /* LetraAViewController.m */,
 				ECFD99B31ABA048800F958BE /* ListaTableViewController.h */,
 				ECFD99B41ABA048800F958BE /* ListaTableViewController.m */,
+				ECD588761ABB6820003AFF61 /* BuscaViewController.h */,
+				ECD588771ABB6820003AFF61 /* BuscaViewController.m */,
+				ECAC34361ABC654200266FC7 /* ResultadoViewController.h */,
+				ECAC34371ABC654200266FC7 /* ResultadoViewController.m */,
 				EC52AC801AB70F9E00FAEAC4 /* Dicionario.h */,
 				EC52AC811AB70F9E00FAEAC4 /* Dicionario.m */,
 				EC52AC831AB70FF800FAEAC4 /* Letra.h */,
@@ -377,6 +387,8 @@
 				27156F5D18B76AF50053A99C /* MackenzieAppDelegate.m in Sources */,
 				27156F7D18BA89430053A99C /* LetraAViewController.m in Sources */,
 				27156F5918B76AF50053A99C /* main.m in Sources */,
+				ECD588781ABB6820003AFF61 /* BuscaViewController.m in Sources */,
+				ECAC34381ABC654200266FC7 /* ResultadoViewController.m in Sources */,
 				ECFD99B51ABA048800F958BE /* ListaTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
